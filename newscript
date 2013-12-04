@@ -6,7 +6,7 @@ isRunning=`pidof -x "script"`
 if [[ -z "$isRunning" ]]; then
 	#echo "triggering:"`date +%s%N` >> "$parent/cronlog"
 	sleep 1s
-	`"$parent"/script "$1" "$2" "$3"`
+	`"$parent"/script "$1" "$2" "$3" "$4"`
 	sleep 1s
 else
 	#echo "already running:"`date +%s%N` >> "$parent/cronlog"

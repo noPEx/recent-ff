@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///media/sazawal/Seagate%20Expansion%20Drive/%5B%20www.UsaBit.com%20%5D%20-%20The%20ABCs%20of%20Death%20(2012)%20720p%20HDTV%20950MB%20Ganool.mkv" added="2013-11-29T19:38:04Z" modified="2013-11-29T19:38:04Z" visited="2013-11-29T19:38:04Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/x-matroska"/>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;/usr/bin/vlc %U&apos;" modified="2013-11-29T19:38:04Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/Downloads/The%20Idea%20(Berthold%20Bartosch,%201932).mp4" added="2013-11-30T00:16:56Z" modified="2013-11-30T00:17:25Z" visited="2013-11-30T00:16:57Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/mp4"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2013-11-30T00:17:25Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/.ssh/known_hosts" added="2013-12-02T11:22:53Z" modified="2013-12-02T11:24:50Z" visited="2013-12-02T11:22:53Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;gedit %U&apos;" modified="2013-12-02T11:22:53Z" count="1"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-02T11:24:50Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/.ssh/known_hosts.old" added="2013-12-02T11:23:05Z" modified="2013-12-02T11:23:05Z" visited="2013-12-02T11:23:06Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-trash"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-02T11:23:05Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/.ssh/id_rsa" added="2013-12-02T11:27:33Z" modified="2013-12-02T11:27:33Z" visited="2013-12-02T11:27:34Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-pem-key"/>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;/usr/bin/gcr-viewer&apos;" modified="2013-12-02T11:27:33Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/.ssh/id_rsa.pub" added="2013-12-02T11:27:47Z" modified="2013-12-02T17:26:56Z" visited="2013-12-02T11:27:47Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-02T17:26:56Z" count="4"/>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2013-12-02T13:35:16Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/Downloads/test/test" added="2013-12-02T11:42:20Z" modified="2013-12-02T11:42:20Z" visited="2013-12-02T11:42:20Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="texmaker" exec="&apos;texmaker %u&apos;" modified="2013-12-02T11:42:20Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/brahmos2@10.40.69.112" added="2013-12-02T15:42:49Z" modified="2013-12-02T15:42:49Z" visited="2013-12-02T15:42:49Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-02T15:42:49Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/Pictures/Screenshot%20from%202013-12-02%2021:13:03.png" added="2013-12-02T15:43:03Z" modified="2013-12-02T15:43:03Z" visited="2013-12-02T15:43:03Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2013-12-02T15:43:03Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/Pictures/Screenshot%20from%202013-12-02%2021:31:37.png" added="2013-12-02T16:01:37Z" modified="2013-12-02T16:01:37Z" visited="2013-12-02T16:01:37Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2013-12-02T16:01:37Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/Downloads/Music/Sublime%20-%201996%20-%20Sublime/.mediaartlocal/album-348c880664f2e1458b899ced2a3518e6-348c880664f2e1458b899ced2a3518e6.jpeg" added="2013-12-02T17:51:02Z" modified="2013-12-02T17:51:02Z" visited="2013-12-02T17:51:02Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;eog %U&apos;" modified="2013-12-02T17:51:02Z" count="1"/>
+          <bookmark:application name="Image Viewer" exec="&apos;eog %u&apos;" modified="2013-12-02T17:51:02Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/Downloads/Recent%20file%20filter/install" added="2013-12-03T19:40:35Z" modified="2013-12-03T19:41:48Z" visited="2013-12-03T19:40:36Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-install"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-03T19:41:48Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///opt/recent-ff/parameters.conf" added="2013-12-03T20:06:42Z" modified="2013-12-03T20:10:17Z" visited="2013-12-03T20:06:42Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-03T20:10:17Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///opt/recent-ff/cronlog" added="2013-12-03T20:11:34Z" modified="2013-12-03T21:05:56Z" visited="2013-12-03T20:11:34Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-03T21:05:56Z" count="28"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/sazawal/.local/share/recently-used.xbel" added="2013-12-03T20:37:55Z" modified="2013-12-03T20:59:26Z" visited="2013-12-03T20:37:55Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-xbel"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2013-12-03T20:59:26Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

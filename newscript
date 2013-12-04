@@ -5,10 +5,10 @@ parent="$( cd "$(dirname "$0")" ; pwd -P )"
 isRunning=`pidof -x "script"`
 if [[ -z "$isRunning" ]]; then
 	#echo "triggering:"`date +%s%N` >> "$parent/cronlog"
-	sleep 1s
+	sleep 2s
 	`"$parent"/script "$1" "$2" "$3" "$4"`
-	sleep 1s
+	sleep 2s
 else
 	#echo "already running:"`date +%s%N` >> "$parent/cronlog"
-	sleep 1s
+	sleep 2s
 fi

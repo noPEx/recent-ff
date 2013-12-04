@@ -6,6 +6,9 @@ source "$parent/parameters.conf"
 in_type=32
 mode="$1"
 
+TEMP_RECENT_FILE="$parent/.temprec"
+TEMP_FILE="$parent/.temp"
+
 #echo "$1,$2,$3" >> "$parent/cronlog"
 if [[ "$mode" == "i" ]]; then
 	if [[ "$2" == "$in_type" ]]; then
@@ -20,31 +23,91 @@ if [[ "$mode" == "i" ]]; then
 		file_recent="${file_recent//]/%5D}"
 		file_recent="${file_recent//./\\.}"
 
-		echo "$file_recent" >> "$parent/cronlog"
-		entry_start=`awk '$0 ~ str{print NR; exit}' str="$file_recent" "$RECENT_FILE"`
-		if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
-			entry_end=`awk -v m=$entry_start ' NR >=m && $0 ~ str{print NR; exit}' str="</bookmark>" "$RECENT_FILE"`
-			echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <=n {next} {print}' "$RECENT_FILE"`" > "$RECENT_FILE"
-		fi
-	fi
+		#echo "$file_recent" >> "$parent/cronlog"
+		#entry_start=`awk '$0 ~ str{print NR; exit}' str="$file_recent" "$RECENT_FILE"`
 
+		#if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
+		#	entry_end=`awk -v m=$entry_start ' NR >=m && $0 ~ str{print NR; exit}' str="</bookmark>" "$RECENT_FILE"`
+		#	echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <=n {next} {print}' "$RECENT_FILE"`" > "$RECENT_FILE"
+		#fi
+
+		cat "$RECENT_FILE" > "$TEMP_RECENT_FILE"
+		echo "" >> "$TEMP_RECENT_FILE"
+	
+		state=1
+		IFS_OLD=IFS
+		IFS=''
+		while read line; do
+			ismatch_start=`echo "$line" | grep "$file_recent" | wc -l`
+			ismatch_end=`echo "$line" | grep "</bookmark>" | wc -l`
+			if [[ "$ismatch_start" == "1" ]]; then
+				state=0
+			fi
+			if [[ "$state" == "1" ]]; then
+				echo "$line" >> "$TEMP_FILE"
+			fi
+			if [[ "$state" == "0" && "$ismatch_end" == "1" ]]; then
+				state=1
+			fi
+		done < "$TEMP_RECENT_FILE"
+		IFS="$IFS_OLD"
+
+		cat "$TEMP_FILE" > "$RECENT_FILE" 
+		echo -n > $TEMP_FILE
+	
+	fi
 elif [[ "$mode" == "r" ]]; then
-	n_dir="$N_DIR" 
-	for i in $(seq 1 $n_dir); do
+	n_dir="$N_DIR"
+	for ((i = 1; i <= "$n_dir"; i++)); do
 		eval diri=\$DIR$i
-		diri_recent=`echo "${diri// /%20}"`
-		entry_start=`awk '$0 ~ str{print NR; exit}' str="$diri_recent" "$RECENT_FILE"`
+		diri_recent="${diri// /%20}"
+		diri_recent="${diri_recent//(/\\(}"
+		diri_recent="${diri_recent//)/\\)}"
+		diri_recent="${diri_recent//[/%5B}"
+		diri_recent="${diri_recent//]/%5D}"
+		diri_recent="${diri_recent//./\\.}"
+
+		cat "$RECENT_FILE" > "$TEMP_RECENT_FILE"
+		echo "" >> "$TEMP_RECENT_FILE"
+	
+		state=1
+		IFS_OLD=IFS
+		IFS=''
+		while read line; do
+			ismatch_start=`echo "$line" | grep "$diri_recent" | wc -l`
+			ismatch_end=`echo "$line" | grep "</bookmark>" | wc -l`
+			if [[ "$ismatch_start" == "1" ]]; then
+				state=0
+			fi
+			if [[ "$state" == "1" ]]; then
+				echo "$line" >> "$TEMP_FILE"
+			fi
+			if [[ "$state" == "0" && "$ismatch_end" == "1" ]]; then
+				state=1
+			fi
+			#echo "$line"
+		done < "$TEMP_RECENT_FILE"
+	
+		IFS="$IFS_OLD"
+		cat "$TEMP_FILE" > "$RECENT_FILE" 
+		echo -n > $TEMP_FILE
+
+
+
+		#entry_start=`awk '$0 ~ str{print NR; exit}' str="$diri_recent" "$RECENT_FILE"`
 			
-		if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
-			cat "$RECENT_FILE" > "$TEMP_RECENT_FILE"
-			while [[ $entry_start =~ ^-?[0-9]+$ ]]; do
-				entry_end=`awk -v m=$entry_start ' NR >= m && $0 ~ str{print NR; exit}' str="</bookmark>" "$TEMP_RECENT_FILE"`
-				echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <= n {next} {print}' "$TEMP_RECENT_FILE"`" > "$TEMP_RECENT_FILE"
-				entry_start=`awk '$0 ~ str{print NR; exit}' str="$diri_recent" "$TEMP_RECENT_FILE"`
-			done
-			cat "$TEMP_RECENT_FILE" > "$RECENT_FILE"
-		fi
+		#if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
+		#	cat "$RECENT_FILE" > "$TEMP_RECENT_FILE"
+		#	while [[ $entry_start =~ ^-?[0-9]+$ ]]; do
+		#		entry_end=`awk -v m=$entry_start ' NR >= m && $0 ~ str{print NR; exit}' str="</bookmark>" "$TEMP_RECENT_FILE"`
+		#		echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <= n {next} {print}' "$TEMP_RECENT_FILE"`" > "$TEMP_RECENT_FILE"
+		#		entry_start=`awk '$0 ~ str{print NR; exit}' str="$diri_recent" "$TEMP_RECENT_FILE"`
+		#	done
+		#	cat "$TEMP_RECENT_FILE" > "$RECENT_FILE"
+		#fi
 	done
+else
+	echo "Not a valid option"
 fi
 
 

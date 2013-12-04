@@ -31,7 +31,7 @@ create_table(){
 		if [[ $dir_present -gt 0 ]]; then
 			remove_table "$diri" "$dir_present"
                 fi
-		sudo tee -a "$table_path" > /dev/null <<< "$dir_pathi IN_OPEN $parent/newscript $& \"\$@\" \"\$#\""
+		sudo tee -a "$table_path" > /dev/null <<< "$dir_pathi IN_OPEN $parent/newscript "i" $& \"\$@\" \"\$#\""
         done
 	echo "$direx_new"	
 	n_dir_new=`expr $n_dir + 1`
@@ -94,7 +94,7 @@ case $option in
 					create_table "$dir_path"
 					echo "Directory successfully added"
 					echo "Removing files of this directory from the recent log"				
-					`$parent/script 0 32 0`
+					`$parent/script "r"`
 				else
 					echo "Directory already present in the list"
 					echo "Please try again"

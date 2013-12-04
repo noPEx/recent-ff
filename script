@@ -4,47 +4,45 @@ export PATH=$PATH
 parent="$( cd "$(dirname "$0")" ; pwd -P )"
 source "$parent/parameters.conf"
 in_type=32
+mode="$1"
 
-file_name(){
-	file_recent="${file_recent//\"/}"
-	file_recent="${file_recent// /%20}"
-	file_recent="${file_recent//(/\\(}"
-	file_recent="${file_recent//)/\\)}"
-	file_recent="${file_recent//[/%5B}"
-	file_recent="${file_recent//]/%5D}"
-	file_recent="${file_recent//./\\.}"
-}
+#echo "$1,$2,$3" >> "$parent/cronlog"
+if [[ "$mode" == "i" ]]; then
+	if [[ "$2" == "$in_type" ]]; then
+		#echo "caught:"`date +%s%N` >> "$parent/cronlog"
 
-echo "$1" >> "$parent/cronlog"
-if [[ "$1" == "$in_type" ]]; then
-	echo "caught:"`date +%s%N` >> "$parent/cronlog"
-	
-	n_dir="$N_DIR"
- 	file_recent="$2/$3"
-	file_name()
-	echo "$file_recent" >> "$parent/cronlog"
-	entry_start=`awk '$0 ~ str{print NR; exit}' str="$file_recent" "$RECENT_FILE"`
-	if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
-		entry_end=`awk -v m=$entry_start ' NR >=m && $0 ~ str{print NR; exit}' str="</bookmark>" "$RECENT_FILE"`
-		echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <=n {next} {print}' "$RECENT_FILE"`" > "$RECENT_FILE"
+ 		file_recent="$3$4"
+		file_recent="${file_recent//\"/}"
+		file_recent="${file_recent// /%20}"
+		file_recent="${file_recent//(/\\(}"
+		file_recent="${file_recent//)/\\)}"
+		file_recent="${file_recent//[/%5B}"
+		file_recent="${file_recent//]/%5D}"
+		file_recent="${file_recent//./\\.}"
+
+		echo "$file_recent" >> "$parent/cronlog"
+		entry_start=`awk '$0 ~ str{print NR; exit}' str="$file_recent" "$RECENT_FILE"`
+		if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
+			entry_end=`awk -v m=$entry_start ' NR >=m && $0 ~ str{print NR; exit}' str="</bookmark>" "$RECENT_FILE"`
+			echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <=n {next} {print}' "$RECENT_FILE"`" > "$RECENT_FILE"
+		fi
 	fi
 
+elif [[ "$mode" == "r" ]]; then
+	n_dir="$N_DIR" 
 	for i in $(seq 1 $n_dir); do
 		eval diri=\$DIR$i
 		diri_recent=`echo "${diri// /%20}"`
 		entry_start=`awk '$0 ~ str{print NR; exit}' str="$diri_recent" "$RECENT_FILE"`
 			
 		if [[ $entry_start =~ ^-?[0-9]+$ ]]; then
-			time=`date +%s%N`
 			cat "$RECENT_FILE" > "$TEMP_RECENT_FILE"
-	
-	
 			while [[ $entry_start =~ ^-?[0-9]+$ ]]; do
 				entry_end=`awk -v m=$entry_start ' NR >= m && $0 ~ str{print NR; exit}' str="</bookmark>" "$TEMP_RECENT_FILE"`
 				echo "`awk -v m=$entry_start -v n=$entry_end 'm <= NR && NR <= n {next} {print}' "$TEMP_RECENT_FILE"`" > "$TEMP_RECENT_FILE"
 				entry_start=`awk '$0 ~ str{print NR; exit}' str="$diri_recent" "$TEMP_RECENT_FILE"`
 			done
-			#cat "$TEMP_RECENT_FILE" > "$RECENT_FILE"
+			cat "$TEMP_RECENT_FILE" > "$RECENT_FILE"
 		fi
 	done
 fi
